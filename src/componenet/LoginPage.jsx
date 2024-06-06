@@ -29,7 +29,7 @@ const LoginPage = () => {
           </div>
           <div className="mt-[36px] sec-2 w-[95%]  mx-auto">
             <div className="">
-              <p className="ml-1 ctn-2 text-[#000000]">Full Name</p>
+              <p className="ml-1 ctn-2 text-[#000000]">Full Name  user</p>
               <InputField  icon={<Unicons.UilUser color={'gray'} size={'22px'} />}  txtname={'Enter Full Name'}/>
             </div>
             <div className="mt-5 inp-div">
