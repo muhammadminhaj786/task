@@ -27,7 +27,7 @@ const LoginPage = () => {
           <div className="w-[15%] mt-5 mx-auto leaf-hid"><img src={leaf} alt="" /></div>
           <div>
             <p className="text-center txt-heading text-black text-[22px] font-bold mt-4">
-              Create Account
+              Create Account 
             </p>
           </div>
           <div className="mt-[36px] sec-2 w-[95%]  mx-auto">
