@@ -8,11 +8,38 @@ import apple from '../assets/apple.png'
 import leaf from '../assets/leaf.png'
 import * as Unicons from '@iconscout/react-unicons';
 import {  UilUser, UilEnvelope, UilKeyholeCircle} from '@iconscout/react-unicons';
+import axios from "axios";
 
 
 const LoginPage = () => {
 
   const [userData , setUserData] = useState([])
+  const [fullname, SetFullname] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  
+  const handleNameChange = (e)=>{
+    console.log(SetFullname(e.target.value))
+  }
+  const handleEmailChange = (e)=>{
+    console.log(setEmail(e.target.value))
+  }
+  const handlePassChange = (e)=>{
+    console.log(setPassword(e.target.value))
+  }
+
+  const handleSubmit = async (e)=>{
+    const objToSend = {
+      name: fullname,
+      email,
+      password
+    }
+    const response = await axios.post('http://localhost:3001/api/createuser', objToSend)
+    console.log(response)
+  }
+
+  
 
   return (
     <div className="  main-screen h-[100vh] ">
@@ -33,18 +60,18 @@ const LoginPage = () => {
           <div className="mt-[36px] sec-2 w-[95%]  mx-auto">
             <div className="">
               <p className="ml-1 ctn-2 text-[#000000]">Full Name  user</p>
-              <InputField  icon={<Unicons.UilUser color={'gray'} size={'22px'} />}  txtname={'Enter Full Name'}/>
+              <InputField   icon={<Unicons.UilUser color={'gray'} size={'22px'} />}  txtname={'Enter Full Name'} onChange={handleNameChange}/>
             </div>
             <div className="mt-5 inp-div">
               <p className="ml-1 ctn-2 text-[#000000]">Email</p>
-              <InputField  icon={<Unicons.UilEnvelope color={'gray'} size={'22px'} />}  txtname={'Enter Your Email'}/>
+              <InputField  icon={<Unicons.UilEnvelope color={'gray'} size={'22px'} />}  txtname={'Enter Your Email'} onChange={handleEmailChange}/>
             </div>
             <div className="mt-5 inp-div">
               <p className="ml-1 ctn-2 text-[#000000]">Password</p>
-              <InputField  icon={<Unicons.UilKeyholeCircle color={'gray'} size={'22px'} />}  txtname={'Enter Your Password'}/>
+              <InputField  icon={<Unicons.UilKeyholeCircle color={'gray'} size={'22px'} />}  txtname={'Enter Your Password'} onChange={handlePassChange}/>
             </div>
             <div className="mt-7 sign-div">
-              <button className="w-full sign-btn bg-[#73895D] h-[52px] text-[white] rounded-[22px] text-[18px]">
+              <button onClick={(e)=>handleSubmit(e)} className="w-full sign-btn bg-[#73895D] h-[52px] text-[white] rounded-[22px] text-[18px]">
                 sign-up
               </button>
             </div>
